@@ -1,23 +1,7 @@
 #!/bin/sh
 
-clear
+URL=$(zenity --title "GoTiny" --entry --text="Enter the URL you want to shorten here:" --width=500 --height=100)
 
-echo "==================================="
-echo ""
-echo "        GoTiny URL Shortener"
-echo ""
-echo "==================================="
+CODE=$(curl -ssLX POST https://gotiny.cc/api -H "Content-Type: application/json" -d '{ "input" : "'${URL}'" }' | cut -d ":" -f4 | cut -d "}" -f1 | awk -F'["|"]' '{print $2}') 
 
-echo ""
-echo ""
-
-read -p "Paste the URL you want shorten here:  " URL
-echo ""
-echo ""
-
-CODE=$(curl -sX POST https://gotiny.cc/api -H "Content-Type: application/json" -d '{ "input" : "'${URL}'" }' | cut -d ":" -f4 | cut -d "}" -f1 | awk -F'["|"]' '{print $2}')
-
-echo "Your GoTiny URL is: https://gotiny.cc/${CODE}"
-
-echo ""
-echo ""
+zenity --title "GoTiny" --info --text="Your GoTiny URL is: https://gotiny.cc/${CODE}" --width=500 --height=100
