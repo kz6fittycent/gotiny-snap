@@ -46,7 +46,7 @@ apps:
 parts:
   launcher:
     plugin: dump
-    source: scripts
+    source: .
     
   gotiny:
     source: https://github.com/kz6fittycent/gotiny-snap
@@ -61,9 +61,3 @@ parts:
       - awk
       - curl
       - zenity
-      
-  publish:
-    plugin: dump
-    source: .
-    organize:
-      ./gotiny: /bin/gotiny
