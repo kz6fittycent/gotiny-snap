@@ -21,6 +21,9 @@
    * Paste or type your long URL
    * The new gotiny.cc URL is printed for you
 
+### Installation:
+`sudo snap install gotiny`
+
 ### Example:
 
 ![image](https://github.com/kz6fittycent/gotiny-snap/blob/master/images/Screenshot_GoTiny.png)
