@@ -15,7 +15,7 @@ read -p "Paste the URL you want shorten here:  " URL
 echo ""
 echo ""
 
-CODE=$(curl -ssLX POST https://gotiny.cc/api -H "Content-Type: application/json" -d '{ "input" : "'${URL}'" }' | cut -d ":" -f4 | cut -d "}" -f1 | awk -F'["|"]' '{print $2}')
+CODE=$(curl -sX POST https://gotiny.cc/api -H "Content-Type: application/json" -d '{ "input" : "'${URL}'" }' | cut -d ":" -f4 | cut -d "}" -f1 | awk -F'["|"]' '{print $2}')
 
 echo "Your GoTiny URL is: https://gotiny.cc/${CODE}"
 
