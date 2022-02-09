@@ -1,0 +1,58 @@
+name: gotiny
+#adopt-info: gotiny
+version: "git" #remove after successful build and switch to adopt-info
+summary: GoTiny URL shortener for your terminal
+description: |
+  Fast:  
+  GoTiny is stripped down to just the bare minimals for extremely fast performance. 
+  With an average processing time of just ~34ms, nothing comes between you and long URLs.
+  
+  Secure:
+  Privacy is important. GoTiny does not handle, collect or store any user information. 
+
+  Accessible:
+  You get a short link! You get a short link! Everybody gets a short link! 
+  
+  Usage:
+   
+   * From your terminal, type: gotiny
+   * Paste or type your long URL
+   * The new gotiny.cc URL is printed for you
+   
+   
+license: MIT
+
+base: core20
+grade: stable
+confinement: strict
+compression: lzo
+
+apps:
+  gotiny:
+    command: bin/gotiny
+    environment:
+      LC_ALL: C.UTF-8
+    plugs:
+      - network
+      
+parts:
+  gotiny:
+    source: https://github.com/kz6fittycent/gotiny-snap
+    source-type: git
+    plugin: nil
+    
+#    override-pull: |
+#      snapcraftctl pull
+#      snapcraftctl set-version "$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"
+
+      
+    stage-packages:
+      - awk
+      - curl
+      - cut
+      
+  publish:
+    plugin: dump
+    source: .
+    organize:
+      ./gotiny: /bin/gotiny
