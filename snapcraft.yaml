@@ -1,6 +1,5 @@
 name: gotiny
-#adopt-info: gotiny
-version: "git" #remove after successful build and switch to adopt-info
+adopt-info: gotiny
 summary: GoTiny URL shortener for your terminal
 description: |
   Fast:  
@@ -41,9 +40,9 @@ parts:
     source-type: git
     plugin: nil
     
-#    override-pull: |
-#      snapcraftctl pull
-#      snapcraftctl set-version "$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"
+    override-pull: |
+      snapcraftctl pull
+      snapcraftctl set-version "$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"
 
       
     stage-packages:
