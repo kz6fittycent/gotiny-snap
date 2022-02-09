@@ -49,7 +49,6 @@ parts:
     stage-packages:
       - awk
       - curl
-      - cut
       
   publish:
     plugin: dump
