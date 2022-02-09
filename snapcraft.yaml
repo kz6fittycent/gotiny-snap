@@ -17,7 +17,10 @@ description: |
    * From your terminal, type: gotiny
    * Paste or type your long URL
    * The new gotiny.cc URL is printed for you
-   
+
+architectures:
+  - build-on: amd64
+    run-on: [amd64, armhf, arm64, ppc64el, s390x]   
    
 license: MIT
 
@@ -44,7 +47,6 @@ parts:
       snapcraftctl pull
       snapcraftctl set-version "$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"
 
-      
     stage-packages:
       - awk
       - curl
