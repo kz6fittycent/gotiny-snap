@@ -1,6 +1,8 @@
+[![gotiny](https://snapcraft.io/gotiny/badge.svg)](https://snapcraft.io/gotiny)
+
 # GOTINY SNAP
 
-## A basic snap for the amazing GoTiny.cc API
+## A basic snap using the amazing GoTiny.cc API
 
 ### Create tiny URL's from your terminal!
 
