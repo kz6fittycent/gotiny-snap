@@ -50,6 +50,7 @@ parts:
     stage-packages:
       - awk
       - curl
+      - zenity
       
   publish:
     plugin: dump
