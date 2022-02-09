@@ -32,12 +32,22 @@ compression: lzo
 apps:
   gotiny:
     command: bin/gotiny
+    extensions:
+      - gnome-3-38    
     environment:
       LC_ALL: C.UTF-8
     plugs:
       - network
+      - x11
+      - desktop
+      - unity7
+      - wayland
       
 parts:
+  launcher:
+    plugin: dump
+    source: scripts
+    
   gotiny:
     source: https://github.com/kz6fittycent/gotiny-snap
     source-type: git
