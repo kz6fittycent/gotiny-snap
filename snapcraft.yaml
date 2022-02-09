@@ -61,3 +61,9 @@ parts:
       - awk
       - curl
       - zenity
+      
+  publish:
+    plugin: dump
+    source: .
+    organize:
+      ./gotiny: /bin/gotiny      
