@@ -17,7 +17,20 @@ echo ""
 
 CODE=$(curl -sX POST https://gotiny.cc/api -H "Content-Type: application/json" -d '{ "input" : "'${URL}'" }' | cut -d ":" -f4 | cut -d "}" -f1 | awk -F'["|"]' '{print $2}')
 
-echo "Your GoTiny URL is: https://gotiny.cc/${CODE}"
+if [ ${CODE} = "white" ] #the API seems to have some issues at times - see: https://gotiny.cc/sy468n
+
+then 
 
 echo ""
+echo "The API seems to be having issues."
+echo "Please check back later."
 echo ""
+
+else
+
+echo ""
+echo "Your GoTiny URL is: https://gotiny.cc/${CODE}"
+echo ""
+echo ""
+
+fi
