@@ -15,7 +15,14 @@ read -p "Paste the URL you want shorten here:  " URL
 echo ""
 echo ""
 
+#VARS
+####################################
 CODE=$(curl -sX POST https://gotiny.cc/api -H "Content-Type: application/json" -d '{ "input" : "'${URL}'" }' | cut -d ":" -f4 | cut -d "}" -f1 | awk -F'["|"]' '{print $2}')
+LOG_DIR="${SNAP_USER_COMMON}/.API_LOGS"
+LOG="${LOG_DIR}/API_ERRORS.log"
+####################################
+
+
 
 if [ ${CODE} = "white" ] #the API seems to have some issues at times - see: https://gotiny.cc/sy468n
 
@@ -24,6 +31,13 @@ then
 echo ""
 echo "The API seems to be having issues."
 echo "Please check back later."
+echo ""
+echo "Logging error..."
+echo ""
+
+mkdir -p ${LOG_DIR}
+
+echo "API_ERROR_$(date +%F%H:%M:%S)" | tee -a ${LOG}
 echo ""
 
 else
