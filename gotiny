@@ -39,7 +39,8 @@ mkdir -p ${LOG_DIR}
 
 echo "API_ERROR_$(date +%F @ %H:%M:%S)" | tee -a ${LOG}
 echo ""
-
+echo "Logs are located in ${LOG_DIR}"
+echo ""
 else
 
 echo ""
