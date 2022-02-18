@@ -11,7 +11,9 @@ echo "==================================="
 echo ""
 echo ""
 
-read -p "Paste the URL you want shorten here:  " URL
+read -p "Paste the URL you want shorten here:  
+
+" URL
 echo ""
 echo ""
 
