@@ -60,7 +60,7 @@ parts:
     stage-packages:
       - awk
       - curl
-      - zenity
+      - yad
       
   publish:
     plugin: dump
