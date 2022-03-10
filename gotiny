@@ -1,7 +1,7 @@
 #!/bin/sh
 
-URL=$($SNAP/usr/bin/zenity --title "GoTiny" --entry --text="Enter the URL you want to shorten here:" --width=500 --height=100)
+URL=$(yad --title "GoTiny" --entry --text="Enter the URL you want to shorten here:" --width=500 --height=100)
 
 CODE=$(curl -ssLX POST https://gotiny.cc/api -H "Content-Type: application/json" -d '{ "input" : "'${URL}'" }' | cut -d ":" -f4 | cut -d "}" -f1 | awk -F'["|"]' '{print $2}') 
 
-$SNAP/usr/bin/zenity --title "GoTiny" --info --text="Your GoTiny URL is: https://gotiny.cc/${CODE}" --width=500 --height=100
+yad --title "GoTiny" --info --text="Your GoTiny URL is: https://gotiny.cc/${CODE}" --width=500 --height=100
