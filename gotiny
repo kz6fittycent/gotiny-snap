@@ -26,5 +26,3 @@ echo ""
 echo "Your GoTiny URL is: https://gotiny.cc/${CODE}"
 echo ""
 echo ""
-
-fi
