@@ -31,7 +31,7 @@ compression: lzo
 
 apps:
   gotiny:
-    command: bin/gotiny
+    command: python3 bin/gotiny.py
     environment:
       LC_ALL: C.UTF-8
     plugs:
@@ -48,8 +48,7 @@ parts:
       snapcraftctl set-version "$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"
 
     stage-packages:
-      - awk
-      - curl
+      - python3
       
   publish:
     plugin: dump
