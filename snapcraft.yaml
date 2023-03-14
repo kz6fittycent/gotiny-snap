@@ -31,7 +31,7 @@ compression: lzo
 
 apps:
   gotiny:
-    command: python3 bin/gotiny.py
+    command: bin/gotiny.py
     environment:
       LC_ALL: C.UTF-8
     plugs:
@@ -41,7 +41,12 @@ parts:
   gotiny:
     source: https://github.com/kz6fittycent/gotiny-snap
     source-type: git
-    plugin: nil
+    plugin: python
+    python-packages:
+      - argparse
+      - regex
+      - requests
+      - pyperclip
     
     override-pull: |
       snapcraftctl pull
@@ -54,4 +59,4 @@ parts:
     plugin: dump
     source: .
     organize:
-      ./gotiny: /bin/gotiny
+      ./gotiny.py: /bin/gotiny.py
