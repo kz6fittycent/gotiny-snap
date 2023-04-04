@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=GoTiny
+GenericName=GoTiny
+Comment=A fast, secure, URL shortener
+Exec=gotiny
+Icon=${SNAP}/meta/gui/gotiny.png
+Terminal=false
+Type=Application
+StartupNotify=false
+Categories=Application
+Keywords=gotiny;

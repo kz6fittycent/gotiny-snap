@@ -23,7 +23,7 @@ apps:
   gotiny:
     command: bin/gotiny
     extensions:
-      - gnome
+      - gnome-3-38
     environment:
       LC_ALL: C.UTF-8
     plugs:
