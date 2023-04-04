@@ -1,0 +1,13 @@
+#!/bin/sh
+
+URL=$(zenity --title "GoTiny.cc URL Shortener" --entry --text "Enter the URL to shorten:" --width=300 --height=100) 
+
+CODE=$(curl -sX POST https://gotiny.cc/api -H "Content-Type: application/json" -d '{ "input" : "'${URL}'" }' | cut -d ":" -f4 | cut -d "}" -f1 | awk -F'["|"]' '{print $2}')
+
+if [ -n "$CODE" ]; then
+
+    zenity --title "GoTiny.cc" --info --text "Shortened URL: https://gotiny.cc/${CODE}" --width=300 --height=100
+else
+    zenity --error --text "Error: Could not shorten URL"
+fi
+
