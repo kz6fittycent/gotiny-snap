@@ -21,7 +21,7 @@ compression: lzo
 
 apps:
   gotiny:
-    command: bin/gotiny
+    command: gotiny
     extensions:
       - gnome
     environment:
